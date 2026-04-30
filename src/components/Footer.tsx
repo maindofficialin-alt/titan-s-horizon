@@ -3,7 +3,7 @@ import { MaindLogo } from "./MaindLogo";
 const COLS = [
   { head: "Ventures",  links: ["AI & Edge Tech", "Smart Logistics", "Cinematic Media", "Renewable Energy", "EV Infrastructure"] },
   { head: "Company",   links: ["Vision", "Leadership", "Press", "Sustainability Report", "Newsroom"] },
-  { head: "Resources", links: ["Whitepapers", "Case Studies", "Developer Hub", "Investor Relations", "Careers"] },
+  { head: "Resources", links: ["AI Event", "Whitepapers", "Case Studies", "Developer Hub", "Investor Relations", "Careers"] },
 ];
 
 const Social = ({ d, label }: { d: string; label: string }) => (
@@ -14,7 +14,7 @@ const Social = ({ d, label }: { d: string; label: string }) => (
 );
 
 export const Footer = () => (
-  <footer id="contact" className="relative bg-pearl">
+  <footer id="contact" className="relative bg-background">
     <div className="grain absolute inset-0 opacity-40 pointer-events-none" />
     <div className="relative mx-auto max-w-7xl px-6 py-24">
       {/* Top — logo + email */}
@@ -51,7 +51,7 @@ export const Footer = () => (
             <p className="font-serif italic tracking-[0.25em] uppercase text-xs text-muted-foreground">{col.head}</p>
             <ul className="mt-5 space-y-3">
               {col.links.map((l) => (
-                <li key={l}><a href="#" className="font-serif text-lg text-foreground/75 hover:text-crimson transition-colors">{l}</a></li>
+                <li key={l}><a href={l === "Leadership" ? "/#team" : "#"} className="font-serif text-lg text-foreground/75 hover:text-crimson transition-colors">{l}</a></li>
               ))}
             </ul>
           </div>
@@ -59,7 +59,10 @@ export const Footer = () => (
         <div>
           <p className="font-serif italic tracking-[0.25em] uppercase text-xs text-muted-foreground">Headquarters</p>
           <p className="mt-5 font-serif text-lg text-foreground/75">
-            12 Embassy Crescent<br/>Bengaluru 560008<br/>India
+            PLOT NO 04, OPP SUDHA HOSPITAL<br/>
+            Hanuman Temple Lane, Nagaram<br/>
+            Hyderabad, Telangana 500083<br/>
+            India
           </p>
         </div>
       </div>

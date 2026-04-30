@@ -19,7 +19,7 @@ export const Careers = () => {
   }, []);
 
   return (
-    <section id="careers" ref={sectionRef} className="relative py-28 md:py-36 bg-pearl overflow-hidden">
+    <section id="careers" ref={sectionRef} className="relative py-28 md:py-36 bg-background overflow-hidden">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <div className="careers-header" style={{ opacity: 0 }}>
           <p className="font-sans italic tracking-[0.3em] uppercase text-xs text-lettuce">Join the Future</p>

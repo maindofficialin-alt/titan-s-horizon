@@ -6,11 +6,11 @@
 
 @layer base {
   :root {
-    /* Pure White base */
-    --background: 0 0% 99%;
+    /* Very Light Grey base */
+    --background: 220 12% 96%;
     --foreground: 220 15% 12%;
 
-    --card: 0 0% 97%;
+    --card: 0 0% 100%;
     --card-foreground: 220 15% 12%;
 
     --popover: 0 0% 97%;
@@ -40,7 +40,7 @@
     --muted-foreground: 220 10% 45%;
 
     --silver: 220 10% 88%;
-    --pearl: 0 0% 96%;
+    --pearl: 0 0% 100%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
@@ -108,16 +108,18 @@
 
 @layer components {
   .glass {
-    background: hsla(240, 10%, 8%, 0.55);
+    background: hsla(220, 10%, 94%, 0.7);
     backdrop-filter: saturate(180%) blur(18px);
     -webkit-backdrop-filter: saturate(180%) blur(18px);
-    border: 1px solid hsla(240, 5%, 20%, 0.6);
+    border: 1px solid hsla(220, 10%, 85%, 0.4);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.04);
   }
   .glass-strong {
-    background: hsla(240, 10%, 8%, 0.78);
+    background: hsla(220, 10%, 94%, 0.92);
     backdrop-filter: saturate(180%) blur(22px);
     -webkit-backdrop-filter: saturate(180%) blur(22px);
-    border: 1px solid hsla(240, 5%, 20%, 0.7);
+    border: 1px solid hsla(220, 10%, 80%, 0.5);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.06);
   }
   .text-gradient-pulse {
     background: var(--gradient-pulse);
