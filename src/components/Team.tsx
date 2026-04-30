@@ -5,10 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const DIRECTOR = {
-  name: "Dr. Elena Vane",
+  name: "TVS MOHAN VISHAL RAJ",
   title: "Managing Director",
-  bio: "Visionary leader with over 20 years of experience in AI infrastructure and global systems architecture. Dr. Vane oversees the long-term strategic evolution of the MAIND ecosystem, ensuring every venture aligns with a zero-emission, intelligence-first future.",
-  initials: "EV",
+  bio: "Visionary leader overseeing the long-term strategic evolution of the MAIND ecosystem, ensuring every venture aligns with a zero-emission, intelligence-first future.",
+  image: "/director.jpg",
   hue: "from-crimson-soft to-lavender-soft"
 };
 
@@ -65,8 +65,12 @@ export const Team = () => {
             <div className="group relative bg-pearl rounded-[48px] p-8 md:p-14 border border-border shadow-card overflow-hidden">
               <div className={`absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l ${DIRECTOR.hue} opacity-5 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none`} />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10">
-                <div className="lg:col-span-4 aspect-square rounded-[36px] bg-gradient-to-br from-white to-silver/30 grid place-items-center shadow-soft border border-white/50">
-                  <span className="font-display text-[8rem] text-foreground/10 group-hover:scale-110 transition-transform duration-700 ease-out">{DIRECTOR.initials}</span>
+                <div className="lg:col-span-4 aspect-square rounded-[36px] overflow-hidden shadow-soft border border-white/50 bg-silver/10">
+                  <img 
+                    src={DIRECTOR.image} 
+                    alt={DIRECTOR.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  />
                 </div>
                 <div className="lg:col-span-8 space-y-6">
                   <div>
