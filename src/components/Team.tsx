@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,6 +9,7 @@ const DIRECTOR = {
   title: "Managing Director",
   bio: "Visionary leader overseeing the long-term strategic evolution of the MAIND ecosystem, ensuring every venture aligns with a zero-emission, intelligence-first future.",
   image: "/director.jpg",
+  initials: "TV",
   hue: "from-crimson-soft to-lavender-soft"
 };
 
@@ -17,7 +18,30 @@ const CEO = {
   title: "Chief Executive Officer",
   bio: "A strategic visionary at the helm of MAIND Holdings. B Hemanth sri sai orchestrates the synergy between AI ecosystems and industrial infrastructure, driving the company's mission to architect the intelligence of tomorrow.",
   image: "/ceo-hemanth.jpg",
+  initials: "BH",
   hue: "from-lettuce-soft to-pearl"
+};
+
+const MemberImage = ({ src, name, initials }: { src: string, name: string, initials: string }) => {
+  const [error, setError] = useState(false);
+
+  return (
+    <div className="w-full h-full relative bg-silver/10 grid place-items-center">
+      {!error ? (
+        <img 
+          src={src} 
+          alt={name} 
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+          onError={() => setError(true)}
+        />
+      ) : (
+        <div className="flex flex-col items-center gap-2">
+          <span className="font-display text-[6rem] text-foreground/10 group-hover:scale-110 transition-transform duration-700 ease-out">{initials}</span>
+          <span className="text-[10px] font-serif uppercase tracking-widest text-foreground/20">Image Pending</span>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export const Team = () => {
@@ -66,11 +90,7 @@ export const Team = () => {
               <div className={`absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l ${DIRECTOR.hue} opacity-5 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none`} />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center relative z-10">
                 <div className="lg:col-span-4 aspect-square rounded-[36px] overflow-hidden shadow-soft border border-white/50 bg-silver/10">
-                  <img 
-                    src={DIRECTOR.image} 
-                    alt={DIRECTOR.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
-                  />
+                  <MemberImage src={DIRECTOR.image} name={DIRECTOR.name} initials={DIRECTOR.initials} />
                 </div>
                 <div className="lg:col-span-8 space-y-6">
                   <div>
@@ -114,11 +134,7 @@ export const Team = () => {
                   </div>
                 </div>
                 <div className="lg:col-span-4 order-1 lg:order-2 aspect-square rounded-[36px] overflow-hidden shadow-soft border border-white/50 bg-silver/10">
-                  <img 
-                    src={CEO.image} 
-                    alt={CEO.name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
-                  />
+                  <MemberImage src={CEO.image} name={CEO.name} initials={CEO.initials} />
                 </div>
               </div>
             </div>
