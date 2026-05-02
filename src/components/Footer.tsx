@@ -1,9 +1,38 @@
 import { MaindLogo } from "./MaindLogo";
+import { Link } from "react-router-dom";
 
 const COLS = [
-  { head: "Ventures",  links: ["AI & Edge Tech", "Smart Logistics", "Cinematic Media", "Renewable Energy", "EV Infrastructure"] },
-  { head: "Company",   links: ["Vision", "Leadership", "Press", "Sustainability Report", "Newsroom"] },
-  { head: "Resources", links: ["AI Event", "Whitepapers", "Case Studies", "Developer Hub", "Investor Relations", "Careers"] },
+  { 
+    head: "Ventures",  
+    links: [
+      { label: "AI & Edge Tech", href: "/service/ai-edge" },
+      { label: "Smart Logistics", href: "/service/logistics" },
+      { label: "Cinematic Media", href: "/service/cinematic-media" },
+      { label: "Renewable Energy", href: "/service/energy" },
+      { label: "EV Infrastructure", href: "/service/evs" }
+    ] 
+  },
+  { 
+    head: "Company",   
+    links: [
+      { label: "Vision", href: "/#vision" },
+      { label: "Leadership", href: "/#team" },
+      { label: "Press", href: "#" },
+      { label: "Sustainability Report", href: "#" },
+      { label: "Newsroom", href: "#" }
+    ] 
+  },
+  { 
+    head: "Resources", 
+    links: [
+      { label: "AI Event", href: "/#ai-event" },
+      { label: "Whitepapers", href: "#" },
+      { label: "Case Studies", href: "#" },
+      { label: "Developer Hub", href: "#" },
+      { label: "Investor Relations", href: "#" },
+      { label: "Careers", href: "/#careers" }
+    ] 
+  },
 ];
 
 const Social = ({ d, label }: { d: string; label: string }) => (
@@ -20,7 +49,9 @@ export const Footer = () => (
       {/* Top — logo + email */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5">
-          <div className="text-foreground"><MaindLogo className="h-10 w-10" /></div>
+          <div className="text-foreground">
+            <Link to="/"><MaindLogo className="h-10 w-10" /></Link>
+          </div>
           <p className="mt-6 font-serif text-xl text-foreground/70 max-w-md">
             Architecting the intelligence of tomorrow — quietly, relentlessly,
             and with a deep respect for the world we are building it for.
@@ -51,7 +82,13 @@ export const Footer = () => (
             <p className="font-serif italic tracking-[0.25em] uppercase text-xs text-muted-foreground">{col.head}</p>
             <ul className="mt-5 space-y-3">
               {col.links.map((l) => (
-                <li key={l}><a href={l === "Leadership" ? "/#team" : "#"} className="font-serif text-lg text-foreground/75 hover:text-crimson transition-colors">{l}</a></li>
+                <li key={l.label}>
+                  {l.href.startsWith("/") ? (
+                    <Link to={l.href} className="font-serif text-lg text-foreground/75 hover:text-crimson transition-colors">{l.label}</Link>
+                  ) : (
+                    <a href={l.href} className="font-serif text-lg text-foreground/75 hover:text-crimson transition-colors">{l.label}</a>
+                  )}
+                </li>
               ))}
             </ul>
           </div>

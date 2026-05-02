@@ -1,17 +1,18 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const PILLARS = [
-  { title: "AI & Edge Tech", tag: "Cognition", body: "Edge-cutting neural systems encompassing bio tech, IoT, nano, defence, quantum tech, and AR & VR.", accent: "lavender", span: "lg:col-span-2 lg:row-span-2", color: "hsl(256 50% 60%)" },
-  { title: "Smart Logistics", tag: "Motion", body: "Autonomous fleets choreographed by predictive routing — large scale industry international trade expertise.", accent: "crimson", span: "lg:col-span-2", color: "hsl(353 79% 56%)" },
-  { title: "Cinematic Ad Media", tag: "Story", body: "Production-grade narrative engineering: lens, light, and the lingering after-image of a brand.", accent: "pearl", span: "lg:col-span-2", color: "hsl(220 13% 70%)" },
-  { title: "Renewable Energy", tag: "Breath", body: "Smart-grid wind, solar, and storage — generation that learns from the load it serves.", accent: "lettuce", span: "lg:col-span-2", color: "hsl(92 51% 55%)" },
-  { title: "Electric Vehicles", tag: "Pulse", body: "Manufacturing aerodynamically perfect, high-performance electric fleets engineered for the future.", accent: "mint", span: "lg:col-span-2", color: "hsl(140 55% 65%)" },
-  { title: "Governance & Public Admin", tag: "Order", body: "Applying AI expertise to optimize policy, streamline citizen services, and modernize administration.", accent: "lavender", span: "lg:col-span-3", color: "hsl(256 50% 60%)" },
-  { title: "Environmental AI", tag: "Nature", body: "Deploying AI to restore ecosystems and track emissions in alignment with UN sustainability goals.", accent: "lettuce", span: "lg:col-span-3", color: "hsl(92 51% 55%)" },
+  { title: "AI & Edge Tech", href: "/service/ai-edge", tag: "Cognition", body: "Edge-cutting neural systems encompassing bio tech, IoT, nano, defence, quantum tech, and AR & VR.", accent: "lavender", span: "lg:col-span-2 lg:row-span-2", color: "hsl(256 50% 60%)" },
+  { title: "Smart Logistics", href: "/service/logistics", tag: "Motion", body: "Autonomous fleets choreographed by predictive routing — large scale industry international trade expertise.", accent: "crimson", span: "lg:col-span-2", color: "hsl(353 79% 56%)" },
+  { title: "Cinematic Ad Media", href: "/service/cinematic-media", tag: "Story", body: "Production-grade narrative engineering: lens, light, and the lingering after-image of a brand.", accent: "pearl", span: "lg:col-span-2", color: "hsl(220 13% 70%)" },
+  { title: "Renewable Energy", href: "/service/energy", tag: "Breath", body: "Smart-grid wind, solar, and storage — generation that learns from the load it serves.", accent: "lettuce", span: "lg:col-span-2", color: "hsl(92 51% 55%)" },
+  { title: "Electric Vehicles", href: "/service/evs", tag: "Pulse", body: "Manufacturing aerodynamically perfect, high-performance electric fleets engineered for the future.", accent: "mint", span: "lg:col-span-2", color: "hsl(140 55% 65%)" },
+  { title: "Governance & Public Admin", href: "/service/governance", tag: "Order", body: "Applying AI expertise to optimize policy, streamline citizen services, and modernize administration.", accent: "lavender", span: "lg:col-span-3", color: "hsl(256 50% 60%)" },
+  { title: "Environmental AI", href: "/service/environment", tag: "Nature", body: "Deploying AI to restore ecosystems and track emissions in alignment with UN sustainability goals.", accent: "lettuce", span: "lg:col-span-3", color: "hsl(92 51% 55%)" },
 ];
 
 const accentGrad: Record<string, string> = {
@@ -77,17 +78,26 @@ export const Services = () => {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 auto-rows-[minmax(220px,auto)] gap-6">
           {PILLARS.map((p, i) => (
-            <article key={p.title} className={`pillar-card card-bento p-8 ${p.span}`} style={{ opacity: 0, perspective: "800px" }}>
-              <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${accentGrad[p.accent]} opacity-60`} />
+            <Link 
+              key={p.title} 
+              to={p.href}
+              className={`pillar-card group block card-bento p-8 ${p.span} transition-all duration-500 hover:scale-[1.02] hover:shadow-xl`}
+              style={{ opacity: 0, perspective: "800px" }}
+            >
+              <div className={`absolute inset-0 -z-0 bg-gradient-to-br ${accentGrad[p.accent]} opacity-60 group-hover:opacity-80 transition-opacity`} />
               <div className="relative z-10 flex h-full flex-col">
                 <div className="flex items-start justify-between">
                   <span className="font-serif italic text-xs uppercase tracking-[0.25em] text-foreground/50">{p.tag}</span>
-                  <div className="animate-float-soft"><PillarIcon color={p.color} idx={i} /></div>
+                  <div className="animate-float-soft group-hover:scale-110 transition-transform duration-500"><PillarIcon color={p.color} idx={i} /></div>
                 </div>
-                <h3 className="mt-auto font-display text-3xl md:text-4xl leading-tight">{p.title}</h3>
+                <h3 className="mt-auto font-display text-3xl md:text-4xl leading-tight group-hover:text-foreground transition-colors">{p.title}</h3>
                 <p className="mt-3 font-serif text-lg text-foreground/70">{p.body}</p>
+                <div className="mt-4 flex items-center gap-2 text-sm font-serif italic text-foreground/50 group-hover:text-foreground/80 transition-colors">
+                  Explore service 
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MaindLogo } from "./MaindLogo";
@@ -54,14 +55,14 @@ export const Nav = () => {
           ? "glass-strong shadow-lg backdrop-blur-xl"
           : "glass shadow-soft"
       }`}>
-        <a href="#top" className="text-foreground group">
+        <Link to="/" className="text-foreground group">
           <MaindLogo className="h-7 w-7 text-foreground transition-transform duration-500 group-hover:rotate-[360deg]" />
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-8">
           <li className="animate-fade-in-up" style={{ animationDelay: "500ms" }}>
-            <a href="/" className="nav-link">Home</a>
+            <Link to="/" className="nav-link">Home</Link>
           </li>
           <li className="relative group animate-fade-in-up" style={{ animationDelay: "600ms" }}>
             <button className="nav-link flex items-center gap-1 pb-1">
@@ -72,9 +73,9 @@ export const Nav = () => {
             <div className="absolute top-full left-0 w-full h-4" />
             <div className="absolute top-[calc(100%+0.5rem)] left-0 w-64 rounded-2xl glass-strong border border-border shadow-card opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 overflow-hidden flex flex-col">
               {servicesDropdown.map((s) => (
-                <a key={s.label} href={s.href} className="px-5 py-4 text-xl text-foreground/80 hover:text-lettuce hover:bg-white/5 transition-colors">
+                <Link key={s.label} to={s.href} className="px-5 py-4 text-xl text-foreground/80 hover:text-lettuce hover:bg-white/5 transition-colors">
                   {s.label}
-                </a>
+                </Link>
               ))}
             </div>
           </li>
@@ -107,12 +108,12 @@ export const Nav = () => {
       }`}>
         <ul className="flex flex-col p-6 gap-4">
           <li>
-            <a href="/" className="nav-link text-lg" onClick={() => setMobileOpen(false)}>Home</a>
+            <Link to="/" className="nav-link text-lg" onClick={() => setMobileOpen(false)}>Home</Link>
           </li>
           <li className="font-bold text-sm text-foreground/50 uppercase tracking-widest mt-2">Services</li>
           {servicesDropdown.map((s) => (
             <li key={s.label} className="pl-4">
-              <a href={s.href} className="nav-link text-lg" onClick={() => setMobileOpen(false)}>{s.label}</a>
+              <Link to={s.href} className="nav-link text-lg" onClick={() => setMobileOpen(false)}>{s.label}</Link>
             </li>
           ))}
           <li className="font-bold text-sm text-foreground/50 uppercase tracking-widest mt-2">Company</li>
