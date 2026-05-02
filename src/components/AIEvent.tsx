@@ -73,7 +73,7 @@ export const AIEvent = () => {
                   </div>
                   <div>
                     <p className="font-serif text-sm uppercase tracking-widest text-muted-foreground">Event Date</p>
-                    <p className="font-display text-xl text-foreground">May 15th, 2026</p>
+                    <p className="font-display text-xl text-foreground">Coming Very Soon</p>
                   </div>
                 </div>
               </div>
