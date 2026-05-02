@@ -96,9 +96,9 @@ export const Footer = () => (
         <div>
           <p className="font-serif italic tracking-[0.25em] uppercase text-xs text-muted-foreground">Headquarters</p>
           <p className="mt-5 font-serif text-lg text-foreground/75">
-            PLOT NO 04, OPP SUDHA HOSPITAL<br/>
-            Hanuman Temple Lane, Nagaram<br/>
-            Hyderabad, Telangana 500083<br/>
+            PLOT NO 04, Hanuman Temple Lane<br/>
+            Nagaram, Hyderabad<br/>
+            Telangana 500083<br/>
             India
           </p>
         </div>

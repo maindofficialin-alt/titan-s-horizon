@@ -13,10 +13,10 @@ const DIRECTOR = {
 };
 
 const CEO = {
-  name: "Adrian Thorne",
+  name: "B Hemanth sri sai",
   title: "Chief Executive Officer",
-  bio: "A master strategist at the intersection of renewable energy and autonomous logistics. Adrian leads the operational core of MAIND Holdings, transforming complex global challenges into streamlined, high-performance industrial solutions.",
-  initials: "AT",
+  bio: "A strategic visionary at the helm of MAIND Holdings. B Hemanth sri sai orchestrates the synergy between AI ecosystems and industrial infrastructure, driving the company's mission to architect the intelligence of tomorrow.",
+  image: "/ceo-hemanth.jpg",
   hue: "from-lettuce-soft to-pearl"
 };
 
@@ -113,8 +113,12 @@ export const Team = () => {
                     </a>
                   </div>
                 </div>
-                <div className="lg:col-span-4 order-1 lg:order-2 aspect-square rounded-[36px] bg-gradient-to-br from-white to-silver/30 grid place-items-center shadow-soft border border-white/50">
-                  <span className="font-display text-[8rem] text-foreground/10 group-hover:scale-110 transition-transform duration-700 ease-out">{CEO.initials}</span>
+                <div className="lg:col-span-4 order-1 lg:order-2 aspect-square rounded-[36px] overflow-hidden shadow-soft border border-white/50 bg-silver/10">
+                  <img 
+                    src={CEO.image} 
+                    alt={CEO.name} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                  />
                 </div>
               </div>
             </div>

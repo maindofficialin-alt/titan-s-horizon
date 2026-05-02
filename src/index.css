@@ -6,8 +6,8 @@
 
 @layer base {
   :root {
-    /* Very Light Grey base */
-    --background: 220 12% 96%;
+    /* Slightly darker greyish base for better contrast */
+    --background: 220 10% 92%;
     --foreground: 220 15% 12%;
 
     --card: 0 0% 100%;
